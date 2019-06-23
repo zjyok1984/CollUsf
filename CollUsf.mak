@@ -10,18 +10,18 @@
 
 TARGET = CollUsf
 
+BINDIR = ./bin
 LIBDIR =
 OBJDIR = ./obj
-SRCDIR = ./src
 INCDIR = -I./inc
-TARDIR = ./bin
-CROSS =
+SRCDIR = ./src
 
 DFLAGS =
 LIBPATH =
 LIBS =
+LIST = >> cc.lst 2>&1
 
-LIST  = >> cc.lst 2>&1
+CROSS =
 CC=$(CROSS)gcc
 RM=rm -rf
 
@@ -29,12 +29,12 @@ OBJECTS = \
 	$(OBJDIR)/collusf.o \
 	$(OBJDIR)/main.o \
 
-all: $(TARDIR)/$(TARGET)
+all: $(BINDIR)/$(TARGET)
 	echo "FINISHED GENERATING $(TARGET) EXECUTABLE" $(LIST)
 	echo "-----------------------------------------------------" $(LIST)
 
-$(TARDIR)/$(TARGET) : $(OBJECTS) $(LIBS)
-	$(CC) -o $(TARDIR)/$(TARGET) $(OBJECTS) $(LIBPATH) $(LIBS) $(INCDIR) $(DFLAGS) $(LIST)
+$(BINDIR)/$(TARGET) : $(OBJECTS) $(LIBS)
+	$(CC) -o $(BINDIR)/$(TARGET) $(OBJECTS) $(LIBPATH) $(LIBS) $(INCDIR) $(DFLAGS) $(LIST)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	mkdir -p $(OBJDIR)
@@ -43,4 +43,4 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c
 clean:
 	$(RM) cc.lst
 	$(RM) $(OBJDIR)
-	$(RM) $(TARDIR)/$(TARGET)
+	$(RM) $(BINDIR)/$(TARGET)

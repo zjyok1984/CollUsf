@@ -21,9 +21,15 @@
     <ClCompile Include="src\collusf.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\cJSON.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\collusf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\cJSON.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
