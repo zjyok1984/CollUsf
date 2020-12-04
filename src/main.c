@@ -6,12 +6,17 @@
 /*初始化汇总调用*/
 static void ProcInit()
 {
+	printf("Program init ok!");
 	return;
 }
 
 /*循环汇总调用*/
 static void ProcLoop()
 {
+	while (1)
+	{
+
+	}
 	return;
 }
 
