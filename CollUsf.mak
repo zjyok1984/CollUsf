@@ -21,9 +21,9 @@ LIBPATH =
 LIBS =
 LIST = >> cc.lst 2>&1
 
-CROSS =
+CROSS = arm-linux-gnueabihf-
 CC=$(CROSS)gcc
-RM=rm -rf
+RM=del
 
 OBJECTS = \
 	$(OBJDIR)/collusf.o \
@@ -37,10 +37,9 @@ $(BINDIR)/$(TARGET) : $(OBJECTS) $(LIBS)
 	$(CC) -o $(BINDIR)/$(TARGET) $(OBJECTS) $(LIBPATH) $(LIBS) $(INCDIR) $(DFLAGS) $(LIST)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c
-	mkdir -p $(OBJDIR)
 	$(CC) -c $< $(INCDIR) $(DFLAGS) -o $@ $(LIST)
 
 clean:
 	$(RM) cc.lst
-	$(RM) $(OBJDIR)
+	$(RM) $(OBJDIR)/*.*
 	$(RM) $(BINDIR)/$(TARGET)
